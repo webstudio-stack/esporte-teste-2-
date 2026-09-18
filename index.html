@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>esporte teste | Performance e Estilo Esportivo</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- AOS Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        h1, h2, h3, .font-sport {
+            font-family: 'Oswald', sans-serif;
+            text-transform: uppercase;
+        }
+        .bg-blue-custom {
+            background-color: #1e40af;
+        }
+        .text-blue-custom {
+            color: #1e40af;
+        }
+        .btn-blue {
+            background-color: #1e40af;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-blue:hover {
+            background-color: #1d4ed8;
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(30, 64, 175, 0.3);
+        }
+        .btn-blue::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.6s;
+        }
+        .btn-blue:hover::after {
+            left: 100%;
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            bottom: -2px;
+            left: 0;
+            background-color: #1e40af;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .img-hover-zoom {
+            overflow: hidden;
+        }
+        .img-hover-zoom img {
+            transition: transform 0.5s ease;
+        }
+        .img-hover-zoom:hover img {
+            transform: scale(1.1);
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-md shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0">
+                    <span class="text-3xl font-sport font-bold text-blue-custom italic tracking-tighter">esporte teste</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="nav-link font-semibold text-gray-700 hover:text-blue-custom">Início</a>
+                    <a href="#produtos" class="nav-link font-semibold text-gray-700 hover:text-blue-custom">Produtos</a>
+                    <a href="#sobre" class="nav-link font-semibold text-gray-700 hover:text-blue-custom">Sobre</a>
+                    <a href="#contato" class="nav-link font-semibold text-gray-700 hover:text-blue-custom">Contato</a>
+                    <a href="https://wa.me/5511999999999" target="_blank" class="btn-blue text-white px-6 py-2 rounded-md font-bold text-sm uppercase tracking-wider">
+                        Agende Já
+                    </a>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-700">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-4 py-6 space-y-4 text-center">
+            <a href="#home" class="block font-semibold text-gray-700">Início</a>
+            <a href="#produtos" class="block font-semibold text-gray-700">Produtos</a>
+            <a href="#sobre" class="block font-semibold text-gray-700">Sobre</a>
+            <a href="#contato" class="block font-semibold text-gray-700">Contato</a>
+            <a href="https://wa.me/5511999999999" target="_blank" class="block btn-blue text-white px-6 py-3 rounded-md font-bold uppercase">
+                Agende Já
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
+                 alt="Sports background"
+                 class="w-full h-full object-cover opacity-90">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-blue-900/40 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-left w-full">
+            <div class="max-w-3xl" data-aos="fade-right" data-aos-duration="1000">
+                <h1 class="text-6xl md:text-8xl font-sport font-bold text-white leading-none">
+                    SUPERE SEUS <br> <span class="text-blue-400">LIMITES</span>
+                </h1>
+                <p class="mt-6 text-xl text-gray-200 leading-relaxed max-w-xl">
+                    Equipamentos de alta performance para quem busca eficiência, organização e o máximo desempenho em cada treino.
+                </p>
+                <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/5511999999999" target="_blank" class="btn-blue text-white px-8 py-4 rounded-md font-bold text-center shadow-lg uppercase tracking-widest">
+                        Fale Conosco <i class="fa-brands fa-whatsapp ml-2"></i>
+                    </a>
+                    <a href="#produtos" class="bg-white text-blue-900 px-8 py-4 rounded-md font-bold text-center hover:bg-gray-100 transition-all uppercase tracking-widest">
+                        Explorar Loja
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Categories -->
+    <section id="produtos" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-sport font-bold text-gray-900">Equipamentos de Elite</h2>
+                <div class="w-24 h-1.5 bg-blue-custom mx-auto mt-4"></div>
+                <p class="mt-4 text-gray-500 text-lg">Tudo o que você precisa para alcançar a vitória.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Category 1 -->
+                <div class="img-hover-zoom rounded-xl shadow-xl bg-white group" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1542291026-7a9dcaaaac3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                         alt="Calçados"
+                         class="w-full h-80 object-cover rounded-t-xl">
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-sport font-bold mb-2 text-gray-800">Calçados Pro</h3>
+                        <p class="text-gray-500 text-sm mb-6">Máximo amortecimento e estabilidade para qualquer esporte.</p>
+                        <a href="https://wa.me/5511999999999" target="_blank" class="btn-blue text-white px-6 py-2 rounded-md font-bold text-xs uppercase tracking-tighter inline-block">
+                            Consultar Modelos
+                        </a>
+                    </div>
+                </div>
+                <!-- Category 2 -->
+                <div class="img-hover-zoom rounded-xl shadow-xl bg-white group" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                         alt="Roupas"
+                         class="w-full h-80 object-cover rounded-t-xl">
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-sport font-bold mb-2 text-gray-800">Vestuário Tech</h3>
+                        <p class="text-gray-500 text-sm mb-6">Tecidos respiráveis e compressão para alta performance.</p>
+                        <a href="https://wa.me/5511999999999" target="_blank" class="btn-blue text-white px-6 py-2 rounded-md font-bold text-xs uppercase tracking-tighter inline-block">
+                            Consultar Modelos
+                        </a>
+                    </div>
+                </div>
+                <!-- Category 3 -->
+                <div class="img-hover-zoom rounded-xl shadow-xl bg-white group" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1517927033933-62ec6771a55a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                         alt="Acessórios"
+                         class="w-full h-80 object-cover rounded-t-xl">
+                    <div class="p-6 text-center">
+                        <h3 class="text-2xl font-sport font-bold mb-2 text-gray-800">Acessórios</h3>
+                        <p class="text-gray-500 text-sm mb-6">O complemento ideal para organizar sua rotina de treinos.</p>
+                        <a href="https://wa.me/5511999999999" target="_blank" class="btn-blue text-white px-6 py-2 rounded-md font-bold text-xs uppercase tracking-tighter inline-block">
+                            Consultar Modelos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                             alt="Treino"
+                             class="rounded-2xl shadow-2xl relative z-10">
+                        <div class="absolute -bottom-6 -right-6 w-64 h-64 bg-blue-custom rounded-2xl -z-0 opacity-20"></div>
+                    </div>
+                </div>
+                <div class="md:w-1/2" data-aos="fade-left">
+                    <h2 class="text-4xl font-sport font-bold text-gray-900 mb-6">Praticidade e Organização</h2>
+                    <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                        A esporte teste foi criada para quem não tem tempo a perder. Nosso objetivo é oferecer a melhor curadoria de produtos esportivos de forma eficiente e organizada.
+                    </p>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start p-4 bg-gray-50 rounded-lg">
+                            <i class="fa-solid fa-bolt text-blue-custom text-2xl mr-4"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Entrega Express</h4>
+                                <p class="text-sm text-gray-500">Seu equipamento onde você estiver.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-4 bg-gray-50 rounded-lg">
+                            <i class="fa-solid fa-shield-halved text-blue-custom text-2xl mr-4"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Qualidade Garantida</h4>
+                                <p class="text-sm text-gray-500">Marcas líderes mundiais em performance.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-4 bg-gray-50 rounded-lg">
+                            <i class="fa-solid fa-headset text-blue-custom text-2xl mr-4"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Suporte Especialista</h4>
+                                <p class="text-sm text-gray-500">Ajudamos você a escolher o item certo.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start p-4 bg-gray-50 rounded-lg">
+                            <i class="fa-solid fa-calendar-check text-blue-custom text-2xl mr-4"></i>
+                            <div>
+                                <h4 class="font-bold text-gray-800">Agendamento Fácil</h4>
+                                <p class="text-sm text-gray-500">Atendimento rápido via WhatsApp.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-24 bg-blue-custom text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center" data-aos="zoom-in">
+            <h2 class="text-4xl font-sport font-bold mb-8">Nossa Missão</h2>
+            <p class="text-xl leading-relaxed opacity-90 font-light">
+                Mais do que uma loja, somos parceiros do seu progresso. Acreditamos que a organização e a escolha do equipamento correto são a base para qualquer conquista esportiva. Trabalhamos para que você foque apenas no seu treino.
+            </p>
+            <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <span class="text-4xl font-bold block">50k+</span>
+                    <span class="text-xs uppercase tracking-widest opacity-80">Produtos Vendidos</span>
+                </div>
+                <div class="text-center">
+                    <span class="text-4xl font-bold block">100%</span>
+                    <span class="text-xs uppercase tracking-widest opacity-80">Originalidade</span>
+                </div>
+                <div class="text-center">
+                    <span class="text-4xl font-bold block">24h</span>
+                    <span class="text-xs uppercase tracking-widest opacity-80">Suporte Online</span>
+                </div>
+                <div class="text-center">
+                    <span class="text-4xl font-bold block">15+</span>
+                    <span class="text-xs uppercase tracking-widest opacity-80">Marcas Premium</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Location -->
+    <section id="contato" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl font-sport font-bold text-gray-900">Onde nos Encontrar</h2>
+                <div class="w-24 h-1.5 bg-blue-custom mx-auto mt-4"></div>
+                <p class="mt-4 text-gray-500 text-lg">Visite nossa loja física ou agende seu atendimento.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-6" data-aos="fade-right">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex items-center">
+                        <div class="bg-blue-100 p-4 rounded-lg mr-6">
+                            <i class="fa-solid fa-location-dot text-blue-custom text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Endereço</h4>
+                            <p class="text-gray-600">Av. do Esporte, 456, Centro Esportivo<br>São Paulo - SP, 01234-000</p>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex items-center">
+                        <div class="bg-blue-100 p-4 rounded-lg mr-6">
+                            <i class="fa-brands fa-whatsapp text-blue-custom text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">WhatsApp</h4>
+                            <p class="text-gray-600">(11) 99999-9999</p>
+                            <a href="https://wa.me/5511999999999" target="_blank" class="text-blue-custom font-bold hover:underline mt-1 block uppercase text-xs">Enviar Mensagem Agora &rarr;</a>
+                        </div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex items-center">
+                        <div class="bg-blue-100 p-4 rounded-lg mr-6">
+                            <i class="fa-solid fa-clock text-blue-custom text-2xl"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-gray-800">Horários</h4>
+                            <p class="text-gray-600">Segunda a Sexta: 08h às 20h<br>Sábado e Domingo: 09h às 14h</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Map -->
+                <div class="h-full min-h-[400px] rounded-2xl overflow-hidden shadow-2xl" data-aos="fade-left">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.197542723238!2d-46.658882!3d-23.56134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzQwLjguOCJTIDQ2S8zOScyNzIuMyJX"
+                        width="100%"
+                        height="100%"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center" data-aos="fade-up">
+                <a href="https://wa.me/5511999999999" target="_blank" class="btn-blue text-white px-12 py-5 rounded-md font-bold text-xl shadow-xl inline-block uppercase tracking-widest transform transition hover:scale-105">
+                    Agende seu Atendimento <i class="fa-brands fa-whatsapp ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="text-3xl font-sport font-bold text-blue-400 italic block mb-4 tracking-tighter">esporte teste</span>
+            <p class="text-gray-400 mb-8">© 2026 esporte teste Performance. Todos os direitos reservados.</p>
+            <div class="flex justify-center space-x-6 text-2xl">
+                <a href="#" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-facebook"></i></a>
+                <a href="https://wa.me/5511999999999" target="_blank" class="hover:text-blue-400 transition-colors"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            duration: 800,
+            once: true,
+            easing: 'ease-out-back',
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
